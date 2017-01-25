@@ -1794,7 +1794,7 @@ class ModelDeclarativeMetaclass(DeclarativeMetaclass):
         include_fields = specified_fields
 
         if include_fields is None:
-            if meta and meta.object_class:
+            if meta and getattr(meta, 'object_class'):
                 include_fields = [f.name for f in meta.object_class._meta.fields]
             else:
                 include_fields = []
